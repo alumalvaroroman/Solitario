@@ -78,6 +78,20 @@ public class Solitario {
         char datoFinal = tablero[destinoX][destinoY];
         tablero[destinoX][destinoY] = datoOrigen;
         tablero[origenX][origenY] = datoFinal;
-        tablero[destinoX-1][destinoY] = datoFinal;
+        if (origenY == destinoY) {
+            if (origenX > destinoX) {
+                tablero[destinoX+1][destinoY] = datoFinal;
+            } else{
+                tablero[destinoX-1][destinoY] = datoFinal;
+            }
+        }  
+            
+        if(origenX == destinoX){
+            if (origenY > destinoY) {
+                tablero[destinoX][destinoY+1] = datoFinal;
+            } else{
+                tablero[destinoX][destinoY-1] = datoFinal;
+            }
+        }
     }
 }

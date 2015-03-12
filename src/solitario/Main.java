@@ -138,6 +138,12 @@ public class Main extends javax.swing.JFrame {
     private void jButtonIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarJuegoActionPerformed
         solitario.rellenarTablero();
         jTextArea1.setText(solitario.pintarTablero());
+        
+        //Dejar en blanco las TextField
+        jTextFieldOrigenX.setText("");
+        jTextFieldDestinoX.setText("");
+        jTextFieldOrigenY.setText("");
+        jTextFieldDestinoY.setText("");
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
 
     private void jButtonMoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoverActionPerformed
