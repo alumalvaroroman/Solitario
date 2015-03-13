@@ -1,5 +1,7 @@
 package solitario;
 
+import java.io.BufferedReader;
+
 
 public class Solitario {
     
@@ -10,10 +12,14 @@ public class Solitario {
     
     private String[] patron;
     
-    int origenX;
-    int origenY;
-    int destinoX;
-    int destinoY;
+    private int origenX;
+    private int origenY;
+    private int destinoX;
+    private int destinoY;
+    
+    BufferedReader br;
+    
+    
 
     public Solitario() {
         tablero = new char[FILA][COLUMNA];
@@ -62,6 +68,8 @@ public class Solitario {
         }
     }
     
+    
+    
     public String pintarTablero(){
         String texto = "";
         for (int i = 0; i < FILA; i++) {
@@ -71,6 +79,20 @@ public class Solitario {
             texto += "\n";
         }
         return texto;
+    }
+    
+    public boolean esCorrecto(){
+        boolean correcto = false;
+        if (origenX == '#' && origenY == '#') {
+            correcto = true;
+        }
+        if (destinoX == '.' && destinoY == '.') {
+            correcto = true;
+        }
+        if (destinoX-1 == '#' && destinoY-1 == '#') {
+            correcto = true;
+        }
+        return correcto;
     }
     
     public void setMovimiento(int origenX, int origenY, int destinoX, int destinoY){
