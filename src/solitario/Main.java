@@ -49,7 +49,7 @@ public class Main extends javax.swing.JFrame {
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Courier New", 0, 24)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -150,12 +150,12 @@ public class Main extends javax.swing.JFrame {
 
     private void jButtonMoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoverActionPerformed
         
-        if (solitario.esCorrecto()) {
+//        if (solitario.esCorrecto()) {
             solitario.setMovimiento(Integer.valueOf(jTextFieldOrigenX.getText()), Integer.valueOf(jTextFieldOrigenY.getText()), Integer.valueOf(jTextFieldDestinoX.getText()), Integer.valueOf(jTextFieldDestinoY.getText()));
-        } else{
-            JOptionPane.showMessageDialog(this, "Movimiento incorrecto", "Error movimiento", JOptionPane.ERROR_MESSAGE);
-        }
-        
+//        } else{
+//            JOptionPane.showMessageDialog(this, "Movimiento incorrecto", "Error movimiento", JOptionPane.ERROR_MESSAGE);
+//        }
+//        
         
         jTextArea1.setText(solitario.pintarTablero());
     }//GEN-LAST:event_jButtonMoverActionPerformed

@@ -10,7 +10,7 @@ public class Solitario {
     
     private char[][] tablero;
     
-    private String[] patron;
+    //private String[] patron;
     
     private int origenX;
     private int origenY;
@@ -83,15 +83,15 @@ public class Solitario {
     
     public boolean esCorrecto(){
         boolean correcto = false;
-        if (origenX == '#' && origenY == '#') {
-            correcto = true;
-        }
-        if (destinoX == '.' && destinoY == '.') {
-            correcto = true;
-        }
-        if (destinoX-1 == '#' && destinoY-1 == '#') {
-            correcto = true;
-        }
+//        if (origenX == '#' && origenY == '#') {
+//            correcto = true;
+//        }
+//        if (destinoX == '.' && destinoY == '.') {
+//            correcto = true;
+//        }
+//        if (destinoX-1 == '#' && destinoY-1 == '#') {
+//            correcto = true;
+//        }
         return correcto;
     }
     
