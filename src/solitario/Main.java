@@ -149,13 +149,13 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
 
     private void jButtonMoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoverActionPerformed
+        solitario.setCoordenadas(Integer.valueOf(jTextFieldOrigenX.getText()), Integer.valueOf(jTextFieldOrigenY.getText()), Integer.valueOf(jTextFieldDestinoX.getText()), Integer.valueOf(jTextFieldDestinoY.getText()));
+        if (solitario.esCorrecto()) {
+            solitario.realizarMovimiento();
+        } else{
+            JOptionPane.showMessageDialog(this, "Movimiento incorrecto", "Error movimiento", JOptionPane.ERROR_MESSAGE);
+        }
         
-//        if (solitario.esCorrecto()) {
-            solitario.setMovimiento(Integer.valueOf(jTextFieldOrigenX.getText()), Integer.valueOf(jTextFieldOrigenY.getText()), Integer.valueOf(jTextFieldDestinoX.getText()), Integer.valueOf(jTextFieldDestinoY.getText()));
-//        } else{
-//            JOptionPane.showMessageDialog(this, "Movimiento incorrecto", "Error movimiento", JOptionPane.ERROR_MESSAGE);
-//        }
-//        
         
         jTextArea1.setText(solitario.pintarTablero());
     }//GEN-LAST:event_jButtonMoverActionPerformed
