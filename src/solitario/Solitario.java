@@ -1,6 +1,7 @@
 package solitario;
 
 import java.io.BufferedReader;
+import java.util.ArrayList;
 
 
 public class Solitario {
@@ -16,10 +17,10 @@ public class Solitario {
     private int origenY;
     private int destinoX;
     private int destinoY;
+        
+    private ArrayList<Movimientos> listaMovimientos = new ArrayList();
     
     BufferedReader br;
-    
-    
 
     public Solitario() {
         tablero = new char[FILA][COLUMNA];
@@ -34,7 +35,7 @@ public class Solitario {
    }
    
     
-    public void rellenarTablero(){
+   public void rellenarTablero(){
         for (int i = 0; i < FILA; i++) {
             for (int j = 0; j < COLUMNA; j++) {
                 if (i < 2 || i > 4) {
@@ -69,8 +70,7 @@ public class Solitario {
             }
         }
     }
-    
-    
+   
     
     public String pintarTablero(){
         String texto = "";
@@ -85,8 +85,6 @@ public class Solitario {
     
     public boolean esCorrecto(){
         boolean correcto = false;
-        System.out.println("asdfa");
-        System.out.println("asdfasdfasdfasdf: " + tablero[origenX][origenY]);
             if (origenY == destinoY) {
                 if (origenX > destinoX) {
                    if (tablero[origenX][origenY] == '#' && tablero[origenX-1][origenY] == '#' && tablero[destinoX][destinoY] == '.') {
@@ -125,15 +123,54 @@ public class Solitario {
                 tablero[destinoX+1][destinoY] = datoFinal;
             } else{
                 tablero[destinoX-1][destinoY] = datoFinal;
-            }
+            }   
         }  
-            
+        //Movimiento vertical
         if(origenX == destinoX){
             if (origenY > destinoY) {
                 tablero[destinoX][destinoY+1] = datoFinal;
             } else{
                 tablero[destinoX][destinoY-1] = datoFinal;
             }
+        }
+        
+        Movimientos movimientos = new Movimientos(origenX,origenY,destinoX,destinoY);
+        listaMovimientos.add(movimientos);
+    }
+    
+    public void deshacerMovimiento(){
+        this.origenX = listaMovimientos.get(listaMovimientos.size()-1).getOrigenX();
+        this.origenY = listaMovimientos.get(listaMovimientos.size()-1).getOrigenY();
+        this.destinoX = listaMovimientos.get(listaMovimientos.size()-1).getDestinoX();
+        this.destinoY = listaMovimientos.get(listaMovimientos.size()-1).getDestinoY();
+
+        // Movimiento horizontal
+        if (origenY == destinoY) {
+            if (origenX > destinoX) {
+                tablero[destinoX+1][destinoY] = '#';
+                tablero[destinoX][destinoY] = '.';
+                tablero[origenX][origenY] = '#';
+            } else{
+                tablero[destinoX-1][destinoY] = '#';
+                tablero[destinoX][destinoY] = '.';
+                tablero[origenX][origenY] = '#';
+                
+            }   
+        }  
+        //Movimiento vertical
+        if(origenX == destinoX){
+            if (origenY > destinoY) {
+                tablero[destinoX][destinoY+1] = '#';
+                tablero[destinoX][destinoY] = '.';
+                tablero[origenX][origenY] = '#';
+            } else{
+                tablero[destinoX][destinoY-1] = '#';
+                tablero[destinoX][destinoY] = '.';
+                tablero[origenX][origenY] = '#';
+            }
+        }
+        if(!listaMovimientos.isEmpty()){
+            listaMovimientos.remove(listaMovimientos.size() - 1);
         }
     }
 }
