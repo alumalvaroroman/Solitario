@@ -28,9 +28,7 @@ public class Solitario {
     private final int COLUMNA = 7;
     
     private char[][] tablero;
-    
-    //private String[] patron;
-    
+        
     private int origenX;
     private int origenY;
     private int destinoX;
